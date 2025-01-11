@@ -1,3 +1,3 @@
-export const serverUrl="http://localhost:4000"
-/* 
-https://boutique-server-vivs.onrender.com */
+export const serverUrl="https://boutique-server-vivs.onrender.com"
+/* http://localhost:4000
+ */

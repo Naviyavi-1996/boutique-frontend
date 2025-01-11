@@ -49,11 +49,12 @@ function Shopping() {
        </div>
 </div>
      </div>
-     <div className='container-fluid'>
+    { allitem.length>0 ? <div className='container-fluid'>
      <div className='row my-5'>
      {allitem?.map((item)=>(<div className='col-md-3 mt-2'><Dresscard dress={item}/></div>))}
      </div>
-     </div>
+     </div>:
+     <h4 className='text-warning text-center'>No Items To Show</h4> }
      
   <Footer/>
    </>
