@@ -27,6 +27,7 @@ const[acceptedfeedbacks,setacceptedfeedbacks]=useState([])
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getHomeItem()
     if (sessionStorage.getItem("token")) {
       const user=JSON.parse(sessionStorage.getItem("existinguser"))

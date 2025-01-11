@@ -101,6 +101,7 @@ function AllCustomizedOrders() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getAllcustomOrders();
   }, []); // Run once when the component mounts
 

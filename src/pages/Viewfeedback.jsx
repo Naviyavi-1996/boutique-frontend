@@ -68,6 +68,7 @@ const change=(e)=>{
  setnewStatus(e)
 }
   useEffect(() => {
+    window.scrollTo(0, 0);
     getAllFeedbacks();
   },[]); // Run once when the component mounts
 

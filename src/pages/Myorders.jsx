@@ -78,6 +78,7 @@ function Myorders() {
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         getUserorder();
         getUserCustomizedorder();
     }, []);

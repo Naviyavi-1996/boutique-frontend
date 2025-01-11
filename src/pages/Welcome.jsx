@@ -9,6 +9,7 @@ function Welcome() {
    const user=JSON.parse(sessionStorage.getItem("existinguser"))
    
    useEffect(()=>{
+    window.scrollTo(0, 0);
     if(user.username=='admin')
     {
       setIsAdmin(true)

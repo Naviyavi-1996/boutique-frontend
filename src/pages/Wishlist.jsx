@@ -72,6 +72,7 @@ function Wishlist() {
   }
   const[wishlist,setwishlist]=useState([])
     useEffect(()=>{
+      window.scrollTo(0, 0);
       getWishlist()
     },[removeStatus])
     const getWishlist=async()=>

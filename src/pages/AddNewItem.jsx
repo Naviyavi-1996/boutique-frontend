@@ -24,7 +24,8 @@ function AddNewItem() {
       setPreview(URL.createObjectURL(itemDetails.itemImage))
     }
     },[itemDetails.itemImage])
-  useEffect(()=>{if(sessionStorage.getItem("token")){
+  useEffect(()=>{
+    window.scrollTo(0, 0);if(sessionStorage.getItem("token")){
     setToken(sessionStorage.getItem("token"))
   }},[])
   const cancel=()=>{

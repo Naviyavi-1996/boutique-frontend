@@ -82,6 +82,7 @@ function Cart() {
     }
     }
       useEffect(()=>{
+        window.scrollTo(0, 0);
         getCart()
       },[removeStatus])
       useEffect(() => {

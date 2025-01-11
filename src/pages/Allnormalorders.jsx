@@ -99,6 +99,7 @@ function Allnormalorders() {
      setnewStatus(e)
     }
       useEffect(() => {
+        window.scrollTo(0, 0);
        getAllnormalOrders();
       },[]); // Run once when the component mounts
       const data = {

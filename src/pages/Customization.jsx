@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '../components/Header';
@@ -82,6 +82,7 @@ function Customization() {
         })
 
       }
+      useEffect(()=>{ window.scrollTo(0, 0);},[])
   return (
     <>
      <div className='container'>

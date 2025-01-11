@@ -31,6 +31,7 @@ function Shopping() {
     }
   }
      useEffect(() => {
+      window.scrollTo(0, 0);
         getAllItem()
       }, [searchKey,editResponse,addResponse])
   return(

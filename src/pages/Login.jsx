@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { loginApi, registerApi } from '../services/allApi'
@@ -106,6 +106,7 @@ function Login({register}) {
       handleLogin();
     }
 }
+useEffect(()=>{ window.scrollTo(0, 0);},[])
   return (
    <>
    

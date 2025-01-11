@@ -20,6 +20,7 @@ function Users() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getalluser();
   }, []); // Empty dependency array ensures it runs only once
 
