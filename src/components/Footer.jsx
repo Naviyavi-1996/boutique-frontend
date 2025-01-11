@@ -23,10 +23,10 @@ function Footer() {
                         <div className='col-md-2 d-md-flex justify-content-center'>
                             <div style={{ color: 'black' }}>
                                 <h3 style={{ color: 'white' }}>Links</h3>
-                                <p className='mt-3'><Link to={'/'}style={{textDecoration:'none',color:'black'}}>Home</Link></p>
-                                <p>Shop Now</p>
-                                <p>Feedback</p>
-                                <p>Customer Reviews</p>
+                                <Link to={'/'}><p className='mt-3'><Link to={'/'}style={{textDecoration:'none',color:'black'}}>Home</Link></p></Link>
+                               <Link to={"/shopping"}> <p>Shop Now</p></Link>
+                               <Link to={"/feedback"}> <p>Feedback</p></Link>
+                                
                             </div>
                         </div>
                        
