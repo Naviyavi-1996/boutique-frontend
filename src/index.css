@@ -1,0 +1,33 @@
+*{
+  margin:0px;
+  padding: 0px;
+  font-family: "Merriweather", serif
+}
+.caption
+{
+  font-family: "Great Vibes", cursive;
+}
+.brand{
+  font-family: "Pacifico", cursive;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .background {
+    width:'100%';
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .background {
+    background-size: cover; 
+    background-position: center; 
+    width:100%;
+    height:800px;
+  }
+}
