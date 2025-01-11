@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
@@ -9,6 +9,14 @@ function Footer() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const[user,setuser]=useState("")
+    useEffect(()=>{
+        if(sessionStorage.getItem("existinguser"))
+        {
+            const user=sessionStorage.getItem("existinguser")
+            setuser(user)
+        }
+    },[])
     return (
         <>
             <div className='p-5' style={{ backgroundColor: 'rgb(252, 91, 118)' }}>
@@ -20,15 +28,14 @@ function Footer() {
                             <h5 className='caption'>Style your Moments</h5>
                             <p className="mt-3" style={{ textAlign: 'justify' }}> All kind of Costume Designing like Wedding wear, Party wear , Normal Wear etc All kind of tailoring work for ladies and kids. We undertake all Indian and western outfits All kind of Hand Embroidery work like Aari work, Zardozi Work, Cut Work, Bead Work, Pearl Work, etc. </p>
                         </div>
-                        <div className='col-md-2 d-md-flex justify-content-center'>
+                       { user && <div className='col-md-2 d-md-flex justify-content-center'>
                             <div style={{ color: 'black' }}>
                                 <h3 style={{ color: 'white' }}>Links</h3>
-                                <Link to={'/'} ><p className='mt-3' style={{textDecoration:'none',color:'black'}}>Home</p></Link>
-                                <p>Shop Now</p>
-                                <p>Feedback</p>
-                                <p>Customer Reviews</p>
+                                <Link to={'/'} style={{textDecoration:'none',color:'black'}}><p className='mt-3'>Home</p></Link>
+                                <Link to={'/shopping'} style={{textDecoration:'none',color:'black'}}><p>Shop Now</p></Link>
+                               <Link to={'/feedback'}  style={{textDecoration:'none',color:'black'}}> <p>Feedback</p></Link>
                             </div>
-                        </div>
+                        </div>}
                        
                         <div className='col-md-3 d-md-flex justify-content-center'>
                             <div style={{ color: 'black' }}>
