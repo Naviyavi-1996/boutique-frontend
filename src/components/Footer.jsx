@@ -18,7 +18,7 @@ function Footer() {
                         <div className='col-md-4' style={{ color: 'black' }}>
                             <h3 className='caption' style={{ color: 'white' }}>She Designs</h3>
                             <h5 className='caption'>Style your Moments</h5>
-                            <p className="mt-3" style={{ textAlign: 'justify' }}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, distinctio eum et possimus odio facilis id aut provident laborum doloribus quos, consectetur, reiciendis cum ullam animi earum! Repellendus, necessitatibus fugiat. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere officia porro iure doloremque necessitatibus. Temporibus eveniet esse pariatur beatae, quisquam rem adipisci corrupti neque laudantium mollitia consectetur veniam deleniti quae! </p>
+                            <p className="mt-3" style={{ textAlign: 'justify' }}> All kind of Costume Designing like Wedding wear, Party wear , Normal Wear etc All kind of tailoring work for ladies and kids. We undertake all Indian and western outfits All kind of Hand Embroidery work like Aari work, Zardozi Work, Cut Work, Bead Work, Pearl Work, etc. </p>
                         </div>
                         <div className='col-md-2 d-md-flex justify-content-center'>
                             <div style={{ color: 'black' }}>
