@@ -190,7 +190,7 @@ function AllCustomizedOrders() {
                         <td>{order?.address}</td>
                         <td>{order?.phone}</td>
                         <td>{order?.remarks}</td>
-                        <td>{order?.status}</td>
+                        {order?.status=="Accepted" ? <td style={{color:'orange'}}>{order?.status}</td>:order?.status=="Rejected" ?<td style={{color:'maroon'}}>{order?.status}</td>:order?.status=="Returned" ?<td style={{color:'maroon'}}>{order?.status}</td>:<td>{order?.status}</td>}
                         <td>
                           <div className='d-flex flex-column'>
                             <select className="form-control mb-2" onChange={(e) => change(e.target.value)}>

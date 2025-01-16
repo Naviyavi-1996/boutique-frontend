@@ -125,7 +125,7 @@ function Myorders() {
                                                 <td>{item?.address}</td>
                                                 <td>{item?.phone}</td>
                                                 <td>{item?.remarks}</td>
-                                                <td>{item?.status}</td>
+                                                {item?.status=="Accepted" ? <td style={{color:'orange'}}>{item?.status}</td>:item?.status=="Rejected" ?<td style={{color:'maroon'}}>{item?.status}</td>:item?.status=="Returned" ?<td style={{color:'maroon'}}>{item?.status}</td>:<td>{item?.status}</td>}
                                                 <td><button className='btn btn-primary'>VIEW</button></td>
                                             </tr>
                                         ))}
@@ -167,7 +167,7 @@ function Myorders() {
                                                 <td>{item?.orderdate}</td>
                                                 <td>{item?.phone}</td>
                                                 <td>{item?.address}</td>
-                                                <td>{item?.status}</td>
+                                                {item?.status=="Accepted" ? <td style={{color:'orange'}}>{item?.status}</td>:item?.status=="Rejected" ?<td style={{color:'maroon'}}>{item?.status}</td>:item?.status=="Returned" ?<td style={{color:'maroon'}}>{item?.status}</td>:<td>{item?.status}</td>}
                                                 <td>{item?.remarks}</td>
                                             </tr>
                                         ))}
