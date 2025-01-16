@@ -90,7 +90,7 @@ const[acceptedfeedbacks,setacceptedfeedbacks]=useState([])
       {/* Gallery */}
       <h3 className='text-center mt-5'>Our Designs</h3>
    <div className='container bg-success'>
-       <marquee>
+       <marquee behavior="scroll" direction="left" scrollamount="20">
           <div className='container-fluid mt-3'>
             <div className="row">
             {homeitem?.map((item)=>( <div className="col-md-3 p-md-5 text-center">

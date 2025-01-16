@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { getAllnormalOrdersApi, updatenormalorderStatusApi } from '../services/allApi';
+import { getAllnormalOrdersApi, getanitemApi, updatenormalorderStatusApi } from '../services/allApi';
 import { ToastContainer, toast } from 'react-toastify';
+import Modal from 'react-bootstrap/Modal';
 import 'react-toastify/dist/ReactToastify.css';
 import Adminheader from '../components/Adminheader';
 import Footer from '../components/Footer';
 import { Pie } from 'react-chartjs-2'; // Import the Pie chart component
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { serverUrl } from '../services/serverUrl';
 ChartJS.register(ArcElement, Tooltip, Legend);
 function Allnormalorders() {
     const [orders, setOrders] = useState([]);
@@ -18,7 +20,10 @@ function Allnormalorders() {
         const [dispatched, setDispatched] = useState(0);
         const [returned, setReturned] = useState(0);
         const [canceled, setCanceled] = useState(0);
-    
+     const [singleitem, setsingleitem] = useState({});
+     const [show, setShow] = useState(false);
+         const handleClose = () => setShow(false);
+         const handleShow = () => setShow(true);
       const getAllnormalOrders = async () => {
         if (sessionStorage.getItem("token")) {
           const token = sessionStorage.getItem("token");
@@ -139,6 +144,24 @@ function Allnormalorders() {
           },
         },
       }
+          const getItemDetails = async (id) => {
+              console.log(id);
+              if (sessionStorage.getItem("token")) {
+                  const token = sessionStorage.getItem("token");
+                  const reqHeader = {
+                      "Content-Type": "application/json",
+                      "Authorization": `Bearer ${token}`
+                  };
+      
+                  try {
+                      const result = await getanitemApi(id, reqHeader);
+                      setsingleitem(result.data); // Set the item details for the modal
+                      handleShow(); // Show the modal
+                  } catch (error) {
+                      toast.error("Failed to fetch item details");
+                  }
+              }
+          };
   return (
     <>
     <Adminheader/>
@@ -155,11 +178,15 @@ function Allnormalorders() {
                   <tr>
                     <th>SI.NO</th>
                     <th>USER ID</th>
-                    <th>ITEM ID</th>
+                   {/*  <th>ITEM ID</th> */}
+                    <th>DESCRIPTION</th>
+                    <th>COLOR</th>
+                    <th>PRICE</th>
                     <th>SIZE</th>
                     <th>ORDER DATE</th>
                     <th>ADDRESS</th>
                     <th>CONTACT NO</th>
+                   
                     <th>REMARKS</th>
                     <th>STATUS</th>
                     <th>Updations</th>
@@ -168,14 +195,18 @@ function Allnormalorders() {
                 </thead>
                 <tbody>
                   {orders.map((order, index) => (
-                    <tr key={order._id}>
+                    <tr key={order?.itemid} onClick={() => getItemDetails(order?.itemid)}>
                       <td>{index + 1}</td>
-                      <td>{order?.userId}</td>
-                      <td>{order?.itemid}</td>
+                      <td>{order?.userid}</td>
+                     {/*  <td>{order?.itemid}</td> */}
+                      <td>{order?.description}</td>
+                      <td>{order?.color}</td>
+                      <td>{order?.price}</td>
                       <td>{order?.size}</td>
                       <td>{order?.orderdate}</td>
                       <td>{order?.address}</td>
                       <td>{order?.phone}</td>
+                      
                       <td>{order?.remarks}</td>
                      {order?.status=="Accepted" ? <td style={{color:'orange'}}>{order?.status}</td>:order?.status=="Rejected" ?<td style={{color:'maroon'}}>{order?.status}</td>:order?.status=="Returned" ?<td style={{color:'maroon'}}>{order?.status}</td>:<td>{order?.status}</td>}
                       <td>
@@ -249,6 +280,33 @@ function Allnormalorders() {
         )}
       </div>
     </div>
+    <Modal /* size='lg' */ show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title style={{ color: 'rgb(252, 91, 118)' }}>{singleitem?.category}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className='row'>
+                        <div className='col-md-12'>
+                            <img
+                                src={`${serverUrl}/upload/${singleitem?.itemImage}`}
+                                alt="no image"
+                                style={{ width: '100%', height: '500px' }}
+                            />
+                        </div>
+
+                        <div className='col-md-6'>
+                         {/*    <h5>Description:</h5>
+                            <p>{singleitem?.description}</p>
+                            <h5>Color:</h5>
+                            <p>{singleitem?.color}</p>
+                            <h5>Price:</h5>
+                            <p>₹{singleitem?.price}</p> */}
+                           {/*  <h5>Dispatch Time:</h5>
+                            <p>{singleitem?.dispatchTime}</p> */}
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
       <ToastContainer theme='colored' position='top-center' autoClose={2000} />
     <Footer/>
   </>

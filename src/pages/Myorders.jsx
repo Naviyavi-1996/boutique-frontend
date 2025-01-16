@@ -99,8 +99,11 @@ function Myorders() {
                                     <thead>
                                         <tr>
                                             <th>SI.NO</th>
-                                            <th>Item id</th>
-                                              <th>Size</th>
+                                            {/* <th>Item id</th> */}
+                                            <th>Description</th>
+                                            <th>Color</th>
+                                            <th>Price</th>
+                                            <th>Size</th>
                                             <th>Ordered On</th>
                                             <th>Remarks</th>
                                             <th>Status</th>
@@ -111,7 +114,10 @@ function Myorders() {
                                         {order?.map((item, index) => (
                                             <tr key={item.itemid} onClick={() => getItemDetails(item?.itemid)}>
                                                 <td>{index + 1}</td>
-                                                <td>{item?.itemid}</td>
+                                              {/*   <td>{item?.itemid}</td> */}
+                                                <td>{item?.description}</td>
+                                                <td>{item?.color}</td>
+                                                <td>{item?.price}</td>
                                                 <td>{item?.size}</td>
                                                 <td>{item?.orderdate}</td>
                                                 <td>{item?.remarks}</td>
@@ -185,12 +191,12 @@ function Myorders() {
                         </div>
 
                         <div className='col-md-6'>
-                            <h5>Description:</h5>
+                         {/*    <h5>Description:</h5>
                             <p>{singleitem?.description}</p>
                             <h5>Color:</h5>
                             <p>{singleitem?.color}</p>
                             <h5>Price:</h5>
-                            <p>₹{singleitem?.price}</p>
+                            <p>₹{singleitem?.price}</p> */}
                             <h5>Dispatch Time:</h5>
                             <p>{singleitem?.dispatchTime}</p>
                         </div>

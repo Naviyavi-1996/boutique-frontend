@@ -31,11 +31,10 @@ function Cart() {
     const addwishlist=async(item)=>{
       const itemid=item?._id
            const size= item?.size;
-           console.log(size,itemid)
              const reqBody=new FormData()
              reqBody.append("itemid",itemid)
-             reqBody.append("size",size)
-              reqBody.append("category",item?.category)
+           reqBody.append("size",size)
+           reqBody.append("category",item?.category)
            reqBody.append("description",item?.description)
            reqBody.append("price",item?.price)
            reqBody.append("color",item?.color)
@@ -48,7 +47,6 @@ function Cart() {
                  "Authorization":`Bearer ${token}`
                }
                const result=await addtoWishlistapi(reqBody,reqHeader)
-               console.log(result);
                if(result.status==200)
                  {
                 removecartitem(item?._id)
@@ -61,7 +59,6 @@ function Cart() {
         
        }
     const removecartitem=async(id)=>{
-      console.log("hai")
       if(sessionStorage.getItem("token"))
         {
            const token=sessionStorage.getItem("token")
@@ -122,6 +119,9 @@ function Cart() {
         {
          const itemid=cart[i]?.itemid
          const size=cart[i]?.size
+         const price=cart[i].price
+         const description=cart[i].description
+         const color=cart[i].color
          const time= new Date
          const orderdate= (time.toLocaleDateString('en-GB'))
           const reqBody=new FormData()
@@ -130,6 +130,9 @@ function Cart() {
            reqBody.append("orderdate",orderdate)
            reqBody.append("phone",phone)
            reqBody.append("address",address)
+           reqBody.append("price",price)
+           reqBody.append("color",color)
+           reqBody.append("description",description)
            reqBody.append("status",status)
            reqBody.append("remarks",remarks)
            const token = sessionStorage.getItem("token")
