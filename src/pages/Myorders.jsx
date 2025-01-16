@@ -105,6 +105,8 @@ function Myorders() {
                                             <th>Price</th>
                                             <th>Size</th>
                                             <th>Ordered On</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
                                             <th>Remarks</th>
                                             <th>Status</th>
                                             <th></th>
@@ -120,6 +122,8 @@ function Myorders() {
                                                 <td>{item?.price}</td>
                                                 <td>{item?.size}</td>
                                                 <td>{item?.orderdate}</td>
+                                                <td>{item?.address}</td>
+                                                <td>{item?.phone}</td>
                                                 <td>{item?.remarks}</td>
                                                 <td>{item?.status}</td>
                                                 <td><button className='btn btn-primary'>VIEW</button></td>

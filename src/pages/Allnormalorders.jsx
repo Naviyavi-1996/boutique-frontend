@@ -186,7 +186,7 @@ function Allnormalorders() {
                     <th>ORDER DATE</th>
                     <th>ADDRESS</th>
                     <th>CONTACT NO</th>
-                   
+                   <th></th>
                     <th>REMARKS</th>
                     <th>STATUS</th>
                     <th>Updations</th>
@@ -195,7 +195,7 @@ function Allnormalorders() {
                 </thead>
                 <tbody>
                   {orders.map((order, index) => (
-                    <tr key={order?.itemid} onClick={() => getItemDetails(order?.itemid)}>
+                    <tr key={order?.itemid}>
                       <td>{index + 1}</td>
                       <td>{order?.userid}</td>
                      {/*  <td>{order?.itemid}</td> */}
@@ -206,7 +206,7 @@ function Allnormalorders() {
                       <td>{order?.orderdate}</td>
                       <td>{order?.address}</td>
                       <td>{order?.phone}</td>
-                      
+                      <td><button className='btn btn-primary' onClick={() => getItemDetails(order?.itemid)}>View</button></td>
                       <td>{order?.remarks}</td>
                      {order?.status=="Accepted" ? <td style={{color:'orange'}}>{order?.status}</td>:order?.status=="Rejected" ?<td style={{color:'maroon'}}>{order?.status}</td>:order?.status=="Returned" ?<td style={{color:'maroon'}}>{order?.status}</td>:<td>{order?.status}</td>}
                       <td>
