@@ -21,7 +21,7 @@ function Wishlist() {
            
            const reqBody=new FormData()
            reqBody.append("itemid",item?.itemid)
-           reqBody.append("size",size)
+           reqBody.append("size",item?.size)
           reqBody.append("category",item?.category)
          reqBody.append("description",item?.description)
          reqBody.append("price",item?.price)
