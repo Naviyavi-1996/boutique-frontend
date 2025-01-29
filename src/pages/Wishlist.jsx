@@ -17,11 +17,11 @@ function Wishlist() {
     /* const itemid=item?._id
          const size= item?.size;
          console.log(size,itemid) */
-
+         const size= item?.size;
            
            const reqBody=new FormData()
            reqBody.append("itemid",item?.itemid)
-           reqBody.append("size",item?.size)
+           reqBody.append("size",size)
           reqBody.append("category",item?.category)
          reqBody.append("description",item?.description)
          reqBody.append("price",item?.price)
