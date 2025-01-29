@@ -111,7 +111,8 @@ const[acceptedfeedbacks,setacceptedfeedbacks]=useState([])
       {acceptedfeedbacks.length>0 && <div><h3 className='text-center mt-5'>Feedbacks</h3>
       <div className='container-fluid my-3'>
         <div className="row">
-       {acceptedfeedbacks.map((item)=>( <div className="col-md-6 p-md-5 text-center">
+       {acceptedfeedbacks.map((item)=>( 
+        <div className="col-md-6 p-md-5 text-center">
             <Reviewcard feedbacks={item}/> 
           </div>))}
           </div>

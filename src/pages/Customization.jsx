@@ -55,7 +55,7 @@ function Customization() {
                console.log(result);
                if(result.status==200)
                {
-                toast.success("request sended");
+                toast.success("Thank you ,request sended succesfully and  our team will contact on you");
                 setTimeout(() => {
                   cancel()
                 }, 2000)

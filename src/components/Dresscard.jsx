@@ -34,9 +34,9 @@ function Dresscard({ dress }) {
 
   useEffect(() => {
     if (itemDetails.itemImage) {
-      setPreview(URL.createObjectURL(itemDetails.itemImage)); // For newly selected file
+      setPreview(URL.createObjectURL(itemDetails.itemImage)); 
     } else if (dress.itemImage) {
-      setPreview(`${serverUrl}/upload/${dress.itemImage}`); // Fallback to existing image
+      setPreview(`${serverUrl}/upload/${dress.itemImage}`); 
     }
   }, [itemDetails.itemImage, dress.itemImage]);
 
