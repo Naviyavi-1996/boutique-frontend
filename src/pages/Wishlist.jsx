@@ -14,15 +14,15 @@ import 'react-toastify/dist/ReactToastify.css';
 function Wishlist() {
   const[removeStatus,setRemoveStatus]=useState([])
   const addcart=async(item)=>{
-    const itemid=item?._id
+    /* const itemid=item?._id
          const size= item?.size;
-         console.log(size,itemid)
+         console.log(size,itemid) */
 
            
            const reqBody=new FormData()
-           reqBody.append("itemid",itemid)
+           reqBody.append("itemid",item?.itemid)
            reqBody.append("size",size)
-            reqBody.append("category",item?.category)
+          reqBody.append("category",item?.category)
          reqBody.append("description",item?.description)
          reqBody.append("price",item?.price)
          reqBody.append("color",item?.color)
